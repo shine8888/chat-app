@@ -27,12 +27,11 @@ const addUser = ({ id, username, room }) => {
 }
 
 const removeUser = (id) => {
-    const removeUser = users.find((user) => user.id === id)
-    const index = users.indexOf(removeUser)
-    if (index) {
-        users.splice(index, 1)
+    const index = users.findIndex((user) => user.id === id)
+
+    if (index !== -1) {
+        return users.splice(index, 1)[0]
     }
-    return removeUser
 }
 
 const getUser = (id) => {
